@@ -1,0 +1,16 @@
+from rest_framework import serializers
+from shop.models import Product, Category
+
+class ShopSerializer(serializers.ModelSerializer):
+    created = serializers.ReadOnlyField()
+    updated = serializers.ReadOnlyField()
+
+    class Meta:
+        model = Product
+        fields = ('__all__')
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('__all__')
